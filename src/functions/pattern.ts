@@ -29,11 +29,11 @@ function test(value: string, regex: RegExp | string) {
 }
 
 export const pattern: IFunction<IRulePatternOptions> = (targetVal, opts) => {
+  if (typeof targetVal !== 'string') return;
+
   const results: IFunctionResult[] = [];
 
-  if (!targetVal || typeof targetVal !== 'string') return results;
-
-  const { match, notMatch } = opts;
+  const { match, notMatch } = opts!; // todo: avoid this and do validation.
 
   if (match) {
     if (test(targetVal, match) !== true) {

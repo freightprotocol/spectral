@@ -29,11 +29,11 @@ const getUnsortedItems = <T>(arr: T[], compareFn: (a: T, B: T) => number): null 
 };
 
 export const alphabetical: IFunction<IAlphaRuleOptions> = (targetVal, opts, paths, { documentInventory }) => {
-  const results: IFunctionResult[] = [];
-
   if (!isObject(targetVal)) {
-    return results;
+    return;
   }
+
+  const results: IFunctionResult[] = [];
 
   let targetArray: any[] | string[] = [];
 
@@ -49,7 +49,7 @@ export const alphabetical: IFunction<IAlphaRuleOptions> = (targetVal, opts, path
     return results;
   }
 
-  const { keyedBy } = opts;
+  const keyedBy = opts?.keyedBy;
 
   const unsortedItems = getUnsortedItems<unknown>(
     targetArray,

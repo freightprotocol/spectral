@@ -6,11 +6,11 @@ export interface ILengthRuleOptions {
 }
 
 export const length: IFunction<ILengthRuleOptions> = (targetVal, opts) => {
+  if (targetVal === void 0 || targetVal === null) return;
+
   const results: IFunctionResult[] = [];
 
-  const { min, max } = opts;
-
-  if (!targetVal) return results;
+  const { min, max } = opts!; // todo: avoid this and do validation.
 
   let value;
   const valueType = typeof targetVal;
