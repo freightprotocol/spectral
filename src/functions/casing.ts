@@ -37,7 +37,7 @@ export const casing: IFunction<ICasingOptions> = (targetVal, opts) => {
     return;
   }
 
-  assertValidOptions(opts); // todo: cache?
+  assertValidOptions(opts);
 
   const casingValidator = buildFrom(CASES[opts.type], opts);
 
