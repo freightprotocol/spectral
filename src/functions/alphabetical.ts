@@ -53,7 +53,7 @@ export const alphabetical: IFunction<IAlphaRuleOptions> = (targetVal, opts, path
 
   const unsortedItems = getUnsortedItems<unknown>(
     targetArray,
-    keyedBy
+    keyedBy !== void 0
       ? (a, b) => {
           if (!isObject(a) || !isObject(b)) return 0;
 

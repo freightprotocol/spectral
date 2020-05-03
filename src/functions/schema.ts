@@ -144,6 +144,11 @@ const cleanAJVErrorMessage = (message: string, path: Optional<string>, suggestio
 };
 
 export const schema: ISchemaFunction = (targetVal, opts, paths) => {
+  if (!opts) {
+    // todo: nicer validation
+    throw new Error('No options provided');
+  }
+
   const path = paths.target || paths.given;
 
   if (targetVal === void 0) {
