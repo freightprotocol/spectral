@@ -146,7 +146,7 @@ const cleanAJVErrorMessage = (message: string, path: Optional<string>, suggestio
 export const schema: ISchemaFunction = (targetVal, opts, paths) => {
   const results: IFunctionResult[] = [];
 
-  const path = paths.target || paths.given;
+  const path = paths.target ?? paths.given;
 
   if (targetVal === void 0) {
     return [
